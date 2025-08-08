@@ -1,30 +1,39 @@
-import { motion } from "framer-motion";
+import { AppShell } from "@/components/layout/AppSidebar";
+import { BalanceCard } from "@/components/dashboard/BalanceCard";
+import { RunwayCard } from "@/components/dashboard/RunwayCard";
+import { BalanceChartCard } from "@/components/dashboard/BalanceChartCard";
+import { TipsCard } from "@/components/dashboard/TipsCard";
+import { UpcomingCard } from "@/components/dashboard/UpcomingCard";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50 p-6">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center space-y-6"
-      >
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-          Welcome to Your New App
-        </h1>
-        <p className="text-lg md:text-xl text-gray-600 max-w-md mx-auto">
-          Start building something amazing with this clean, modern React template.
-        </p>
-        <div className="pt-4">
-          <a
-            href="#"
-            className="inline-block px-6 py-3 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-md transition-colors duration-200"
-          >
-            Get Started
-          </a>
+    <AppShell>
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-6">
+          <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">
+            Dashboard
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            Avero Lite — track your cash runway with a calm, blue vibe.
+          </p>
         </div>
-      </motion.div>
-    </div>
+
+        <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+          <div className="xl:col-span-2">
+            <BalanceCard />
+          </div>
+          <RunwayCard />
+          <UpcomingCard />
+        </div>
+
+        <div className="mt-4 md:mt-6 grid grid-cols-1 xl:grid-cols-3 gap-4 md:gap-6">
+          <div className="xl:col-span-2">
+            <BalanceChartCard />
+          </div>
+          <TipsCard />
+        </div>
+      </div>
+    </AppShell>
   );
 };
 
